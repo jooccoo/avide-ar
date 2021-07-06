@@ -1,0 +1,65 @@
+<!doctype HTML>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, height=device-height user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="theme-color" content="#000000" />
+        <title>Avide AR Catalog 2020</title>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
+      </head>
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded
+        artoolkit="sourceType: webcam"
+        vr-mode-ui="enabled: false"
+        gesture-detector id="scene"
+        renderer="logarithmicDepthBuffer: true"
+        
+        
+        arjs="trackingMethod: best; debugUIEnabled: false; detectionMode: mono_and_matrix; labelingMode: white_region; matrixCodeType: 4x4_BCH_13_9_3">
+
+        <a-assets>
+            <a-asset-item id="lamp1"
+                src="https://raw.githubusercontent.com/jooccoo/avide-ar/models/ben/ar_test.gltf">
+            </a-asset-item>
+            <a-asset-item id="lamp2"
+                src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF/Duck.gltf">
+            </a-asset-item>
+            <a-asset-item id="bulb"
+                src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/RiggedFigure/glTF/RiggedFigure.gltf">
+            </a-asset-item>
+            <a-asset-item id="cfl2"
+                src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/BoxAnimated/glTF/BoxAnimated.gltf">
+            </a-asset-item>
+
+        </a-assets>
+
+
+        <a-marker id="lamp1-m" type="barcode" value="0">
+             <a-entity gltf-model="#lamp1" scale="1" class="clickable" gesture-handler="minScale: 0.25; maxScale: 5">
+            </a-entity>
+        </a-marker>
+        
+        <a-marker id="lamp2-m" type="barcode" value="1">
+            <a-entity gltf-model="#lamp2" scale="1" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" >
+            </a-entity>
+            
+        </a-marker>
+        
+        <a-marker id="bulb-m" type="barcode" value="2">
+            <a-entity gltf-model="#bulb" scale="1" class="clickable" gesture-handler="minScale: 0.25; maxScale: 5">
+            </a-entity>
+        </a-marker>
+        <a-marker id="cfl2-m" type="barcode" value="3">
+            <a-entity gltf-model="#cfl2" scale="1" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+            </a-entity>
+        </a-marker>
+
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>
